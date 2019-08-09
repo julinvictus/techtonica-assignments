@@ -10,10 +10,24 @@ class Event {
       this.name = name;
       this.description = description;
       this.availableTickets = []
-      this.addAvailableTickets = (type, price) => {
-          const t = new Ticket(type, price);
-          this.availableTickets.push(t);
-      }
+    }
+    addAvailableTickets = (type, price) => {
+        const t = new Ticket(type, price);
+        this.availableTickets.push(t);
+    }
+    searchTickets(minPrice, maxPrice){
+        let message = "Eligible tickets: ";
+        let counter = 1;
+        for (let i=0; i<this.availableTickets.length;i++) {
+            if (this.availableTickets[i].price >= minPrice && this.availableTickets[i].price <= maxPrice) {
+                message += counter + ". " + this.availableTickets[i].type + " ";
+                counter++;
+            }
+        }
+        if (counter ===1){
+            message = "There are no available tickets";
+        }
+        return message;
     }
 }
 
@@ -41,8 +55,7 @@ console.log(event_array);
 $(document).ready(function() {
     let html = "";
     $.each(event_array, function(index, item) {
-      html+= `<li>${item.name} - ${item.description}</li>`;
-      html+= `<p>${item.availableTickets}</p>`;
+      html+= `<li>${item.name} - ${item.description} - ${item.searchTickets(0, 100)}</li>`;
     });
     // insert final html into #event...
     $("#event").html(html);
