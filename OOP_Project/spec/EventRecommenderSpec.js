@@ -8,7 +8,7 @@ describe("EventRecommender", () => {
   
     describe("addEvent", () => {
       it("adds a new Event to the system", () => {
-        er.addEvent("Screaming");
+        er.addEvent("Screaming", 8);
         expect(er.events.length).toEqual(1);
       });
     });
