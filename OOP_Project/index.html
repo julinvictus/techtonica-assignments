@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <title>event-o-matic</title>
+    <meta name="description" content="event-o-matic" />
     <!-- js -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <!--Responsive meta tag-->
@@ -10,23 +11,25 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <!-- css-->
     <link rel="stylesheet" href="main.css">
+    <!--Open graph data-->
+    <meta property="og:title" content="event-o-matic" />
+    <meta property="og:description" content="find events" />
+    <meta property="og:url" content="https://julinvictus.github.io/techtonica-assignments/OOP_Project/" />
+    <meta property=”og:image” content="https://cdn.shopify.com/s/files/1/1061/1924/products/Hugging_Face_Emoji_2028ce8b-c213-4d45-94aa-21e1a0842b4d_large.png?v=1480481059">
+    <!--Twitter card data-->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="event-o-matic" />
+    <meta name="twitter:description" content="find events" />
+    <meta name="twitter:url" content="https://julinvictus.github.io/techtonica-assignments/OOP_Project/" />
+    <meta name="twitter:image" content="https://cdn.shopify.com/s/files/1/1061/1924/products/Hugging_Face_Emoji_2028ce8b-c213-4d45-94aa-21e1a0842b4d_large.png?v=1480481059">
   </head>
   <body>
     <!-- header-->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <a class="navbar-brand" href="index.html"><h2>event-o-matic</h2></a>
-      <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button> -->
-      <!-- <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-          <a class="nav-item nav-link" href="users.html">Users</a>
-          <a class="nav-item nav-link" href="events.html">Events</a>
-        </div>
-      </div> -->
     </nav>
     <!--body-->
-    <div class="container">
+    <div class="container" role="main">
       <div class="row">
         <div class="col-xs-12 col-sm-6 col-md-4">
           <img src="https://cdn.shopify.com/s/files/1/1061/1924/products/Hugging_Face_Emoji_2028ce8b-c213-4d45-94aa-21e1a0842b4d_large.png?v=1480481059" alt="hi emoji" width="100%">
@@ -44,8 +47,8 @@
           <!-- adding events-->
           <p>
             <form id="eventsForm">
-              <p>Event name <input id="addToEventsList" type="text" /> </p>
-              <p>Event price <input id="addToEventsListPrice" type="number" /> </p>
+              <p>Event name <input id="addToEventsList" type="text" aria-label="event name"/> </p>
+              <p>Event price <input id="addToEventsListPrice" type="number" aria-label="event price"/> </p>
               <button type="submit">Add event</button>
             </form>
           </p>
@@ -56,7 +59,7 @@
           </ul>
           <!-- adding users-->
           <form id="usersForm">
-              <p><input id="addToUsersList" type="text" /> 
+              <p><input id="addToUsersList" type="text" aria-label="user name/> 
               <button type="submit">Add user</button></p>
           </form>
         </div>
