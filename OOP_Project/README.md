@@ -1,0 +1,10 @@
+##Screenshots
+(/screenshots/index_screenshot)
+(/screenshots/event_added)
+(/screenshots/event_deleted)
+(/screenshots/filter_screenshot)
+(/screenshots/user_added)
+(/screenshots/user_deleted)
+(/screenshots/jasmine_test)
+(/screenshots/facebook_debugger)
+(/screenshots/aXe_accessibility_test)
