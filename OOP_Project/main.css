@@ -1,0 +1,17 @@
+button {
+    background-color: #E7EEEF;  
+    border-radius: 5px;
+    border-color: #AAB7B8;
+}
+
+input {
+    border-radius: 5px;
+    border: 1px solid #AAB7B8;
+}
+
+.footer {    
+    display: flex;
+    background-color: #353942;
+    color: white;
+    padding: 10px;
+}

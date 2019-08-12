@@ -1,3 +1,5 @@
+// file not used in this proj
+
 // class created for user objects
 class User {
     constructor(name){

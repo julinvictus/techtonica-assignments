@@ -1,44 +1,72 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title></title>
-    
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <title>event-o-matic</title>
+    <!-- js -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!--Responsive meta tag-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!--bootstrap-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <!-- css-->
+    <link rel="stylesheet" href="main.css">
   </head>
   <body>
     <!-- header-->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="index.html"><h2>hi</h2></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div class="navbar-nav">
-            
-            <a class="nav-item nav-link" href="users.html">Users</a>
-            <a class="nav-item nav-link" href="events.html">Events</a>
-            
-          </div>
+      <a class="navbar-brand" href="index.html"><h2>event-o-matic</h2></a>
+      <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button> -->
+      <!-- <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-item nav-link" href="users.html">Users</a>
+          <a class="nav-item nav-link" href="events.html">Events</a>
         </div>
-      </nav>
+      </div> -->
+    </nav>
     <!--body-->
     <div class="container">
-        <div class="row">
-            <div class="col-xs-12 col-sm-6 col-md-4">
-                <img src="https://cdn.shopify.com/s/files/1/1061/1924/products/Hugging_Face_Emoji_2028ce8b-c213-4d45-94aa-21e1a0842b4d_large.png?v=1480481059" alt="hi emoji" width="100%">
-            </div>
+      <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-4">
+          <img src="https://cdn.shopify.com/s/files/1/1061/1924/products/Hugging_Face_Emoji_2028ce8b-c213-4d45-94aa-21e1a0842b4d_large.png?v=1480481059" alt="hi emoji" width="100%">
+
+          <!--listing events-->
+          <h1>EVENTS</h1>
+          <ul id="event">
+            <!-- EVENTS GET INSERTED HERE -->
+          </ul>
+          <!-- filter-->
+          <p><button id="filter" type="submit">Click here to see tickets cheaper than $10</button></p>
+          <p id="filteredEvents">
+            <!-- FILTERED EVENTS GET INSERTED HERE -->
+          </p>
+          <!-- adding events-->
+          <p>
+            <form id="eventsForm">
+              <p>Event name <input id="addToEventsList" type="text" /> </p>
+              <p>Event price <input id="addToEventsListPrice" type="number" /> </p>
+              <button type="submit">Add event</button>
+            </form>
+          </p>
+          <!--listing users-->
+          <h1>USERS</h1>
+          <ul id="user">
+            <!-- users GET INSERTED HERE -->
+          </ul>
+          <!-- adding users-->
+          <form id="usersForm">
+              <p><input id="addToUsersList" type="text" /> 
+              <button type="submit">Add user</button></p>
+          </form>
         </div>
+      </div>
     </div>
-    <!--listing stuff-->
-    <ul id="event">
-      <!-- EVENTS GET INSERTED HERE -->
-    </ul>
+    <footer class="footer">website by julinvictus - 2019</footer>
   </body>
-  <script src = "./event2.js"></script>
-  <!-- js -->
-  
+   <!-- js -->
+  <script src = "./scripts.js"></script>
+  <script src = "./jQuery-scripts.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </html>
