@@ -27,6 +27,7 @@ const fetchPokemon = event => {
 
     let request = new XMLHttpRequest();
     let url = `https://pokeapi.co/api/v2/pokemon/${pokemon}/`;
+    
     request.open('GET', url);
     request.send();
 
