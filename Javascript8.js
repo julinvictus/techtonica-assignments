@@ -11,9 +11,9 @@ res
 
 //Write a function that takes a string and deletes all words that end in ing
 var string = "I'm running cycling hiking";
-var res = string.replace(/ing/gi, "");
+var res = string.replace(/(\b\w+ing\b)/gi, "");
 res
-//**working on it
+//Expected: "I'm   "
 
 //Write a function that takes a string and returns true if it is an email address
 let regexToSearchFor = /@/;
@@ -22,6 +22,6 @@ regexToSearchFor.test("juliana@place.com");
 
 //Write a function that takes a string containing names separated by commas like "Leah, Russell, Michelle" and returns an array of names, ["Leah", "Russell", "Michelle"]
 var string = "Leah, Russell, Michelle";
-var res = string.replace(/w/, "[/w/]");
+var res = string.match(/(\w+)/gi);
 res
-//**working on it
+//Expected: ["Leah", "Russell", "Michelle"]
