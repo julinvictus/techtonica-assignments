@@ -1,12 +1,6 @@
-// $(document).ready(function(event) {
-    
-//     let htmlPokemons = "";
-//     let name = event.target.pokemon.value;
-//     $.each(name , function(index, item) {
-//       htmlPokemons+= `<option value="${name}">${name}</option>`;
-//     });
-//     $("#pokemon").html(htmlPokemons);
-// });
+$(document).ready(function(event) {
+    fetchPokemonNames();
+});
 
 const addToPokedex = event => {
     event.preventDefault();
@@ -22,12 +16,36 @@ const addToPokedex = event => {
     list.appendChild(pokemonContainer);
 };
 
+const fetchPokemonNames = () => {
+    let request = new XMLHttpRequest();
+    let url = `https://pokeapi.co/api/v2/pokemon/`;
+
+    request.open('GET', url);
+    request.send();
+
+    request.onreadystatechange = function(){
+        let htmlPokemons = '<option value="">- choose one -</option><option value="pikachu">pikachu</option>';
+        if (request.readyState === 4){
+            if (request.status === 200){
+                let response = JSON.parse(this.response);
+
+                response.results.forEach( data => {
+                    htmlPokemons+= `<option value="${data.name}">${data.name}</option>`;
+                });
+            } else {
+                console.log(Oops);
+            }
+        }
+        $("#pokemon").html(htmlPokemons);
+    };
+};
+
 const fetchPokemon = event => {
     let pokemon = event.target.pokemon.value.toLowerCase();
 
     let request = new XMLHttpRequest();
     let url = `https://pokeapi.co/api/v2/pokemon/${pokemon}/`;
-    
+
     request.open('GET', url);
     request.send();
 
