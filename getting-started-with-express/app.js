@@ -3,7 +3,11 @@ const bodyParser = require('body-parser');
 const path =  require('path');
 const { check, validationResult } = require('express-validator');
 
+const { I_LOVE } = require('./config');
+
 const app = express();
+
+console.log("I love", I_LOVE);
 
 // View engine
 app.set('view engine', 'ejs');
