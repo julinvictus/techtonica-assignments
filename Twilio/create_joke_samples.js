@@ -1,5 +1,5 @@
-const accountSid = 'AC052ed0115cf4b7225bcca68ac306de1b';
-const authToken = 'dff94c95e27f3ee22059b0bc31cc6b32';
+const accountSid = 'x';
+const authToken = 'x';
 const client = require('twilio')(accountSid, authToken);
 
 phrases = [
@@ -20,7 +20,7 @@ phrases = [
 // Replace 'UAXXX...' with your Assistant's unique SID https://www.twilio.com/console/autopilot/list
 // Replace 'UDXXX...' with the SID for the task you just created.
 phrases.forEach(function(item) {
-  sample = client.autopilot.assistants('UAe0525449390f3757b7a81b0656497bcf')
+  sample = client.autopilot.assistants('x')
                            .tasks('tell-a-joke')
                            .samples
                            .create({
