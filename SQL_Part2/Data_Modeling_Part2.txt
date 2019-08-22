@@ -1,0 +1,90 @@
+Independent Practice
+
+Exercise 1
+
+Imagine you are creating a food website that will have recipes by top chefs from around the world. The following data will be required:
+
+recipe name
+number of ingredients
+ingredients
+difficulty level
+cook time
+chef (who wrote the recipe)
+country (where the chef lives)
+city (where the chef lives)
+restaurants where the chef has worked
+chef's favorite ingredient
+Answer the following questions:
+
+What are the entities?
+- 2 entities, one for recipes, other for chefs
+
+What are the attributes of each entity?
+-Recipes entity:
+recipe id
+recipe name
+number of ingredients
+ingredients
+difficulty level
+cook time
+chef id
+
+-Chefs entity:
+chef id
+chef name
+chef country
+chef city
+chef restaurants 
+chef fav ingredient
+
+What are the data types of the attributes?
+-Recipes entity:
+recipe id => int
+recipe name => string
+number of ingredients => int
+ingredients => array of strings
+difficulty level => int (1 to 5)
+cook time => int
+chef id => int
+
+-Chefs entity:
+chef id => int
+chef name => string
+chef country => string
+chef city => string
+chef restaurants => array of strings
+chef fav ingredient => string
+
+What are the relationships between the entities?
+- Recipe <-> Chef is one-to-many relationship (each recipe has ONE chef, but each chef can have written MANY recipes)
+
+Draw a diagram of your data model.
+- See atachment
+
+Is your data model normalized? Why or why not? If not, can you change it to be normalized?
+- Yes because I'm using a relational model, splitting data into multiple tables.
+
+Are there other ways you might model this data?
+- Not sure
+
+Exercise 2
+
+Select one of your most-used or favorite websites to click through.
+Pick one type of user flow, like buying an item.
+List the data that is required for this flow.
+Organize the data into entities and attributes of each entity. Draw a diagram of your data model.
+
+Exercise 3
+
+In your own words, define the following term:
+
+Foreign key
+- An identifier used in multiple entities (ex: chef_id on both Recipes and Chefs entities)
+
+What are the 3 types of database relationships? Briefly explain each one.
+- One-to-one 
+Each primary key relates to only one record in the related tables
+One-to-many
+Primary key relates to more than one entity (ex: Recipe <-> Chef)
+Many-to-many
+Multiple primary key that relates to more than one entity, becoming foreign keys in a join table 
