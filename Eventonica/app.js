@@ -36,18 +36,50 @@ const connection = require('./connection');
 
  app.completeSentence = (continueCallback) => {
   //YOUR WORK HERE
-  console.log('Please write code for this function');
+  let questions = [{
+    type: 'input',
+    name: 'color',
+    message: 'Pick a color',
+  },
+  {
+    type: 'input',
+    name: 'item',
+    message: 'Pick an object',
+  }];
+  inquirer.prompt(questions).then(answers => {
+    console.log('\nAnswer:');
+    console.log(`My favorite color is ${answers.color}, so my dream is to buy a ${answers.color} ${answers.item}`);
+  });
   //End of your work
   continueCallback();
 }
 
  app.createNewUser = (continueCallback) => {
   //YOUR WORK HERE
+  let questions2 = [{
+    type: 'input',
+    name: 'user_name',
+    message: 'Type your name',
+  },
+  {
+    type: 'input',
+    name: 'user_age',
+    message: 'Type your age',
+  }];
+  inquirer.prompt(questions2).then(answers2 => {
+    console.log('\nAnswer:');
+    console.log(`Your name is ${answers2.user_name}, and you are ${answers2.user_age} years old`);
 
-   console.log('Please write code for this function');
+    const { user_name, user_age } = answers2;
+    connection.query('INSERT INTO users (name, age) VALUES ($1, $2)', [user_name, user_age], (error, results) => {
+      if (error) {
+        throw error
+      }
+      console.log(`User added to db`);
+    })
+  });
   //End of your work
   continueCallback();
-
  }
 
  app.searchEventful = (continueCallback) => {
@@ -76,8 +108,7 @@ const connection = require('./connection');
 
  app.seeUsersOfOneEvent = (continueCallback) => {
   //YOUR WORK HERE
-
-   console.log('Please write code for this function');
+  
   //End of your work
   continueCallback();
 }

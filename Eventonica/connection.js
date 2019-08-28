@@ -1,14 +1,15 @@
 //require packages
 const pg = require("pg");
 const pgKey = require('./keys').pg;
+const Pool = require('pg').Pool;
 
  //create PostgreSQL connection
- const connection = pg.createConnection({ //not working, tried pg.connect too
+ const connection = new Pool({
   
   host: "localhost",
-  port: 3306,
+  port: 5432,
   user: "juliana",
-  password: null,
+  password: "techtonica",
   database: "eventonica"
 });
 
