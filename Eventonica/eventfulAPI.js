@@ -1,30 +1,57 @@
+const inquirer = require('inquirer');
 const eventfulKey = require("./keys.js").eventful;
 const eventful = require('eventful-node');
+const connection = require('./connection');
 const client = new eventful.Client(eventfulKey);
 
- //sample search, try running it to see it in action
-client.searchEvents({
-  keywords: 'tango',
-  location: 'San Francisco',
-  date: "Next Week"
-}, function(err, data){
-   if(err){
-     return console.error(err);
-   }
-   let resultEvents = data.search.events.event;
-   console.log('Received ' + data.search.total_items + ' events');
-   console.log('Event listings: ');
-   for ( let i =0 ; i < resultEvents.length; i++){
-     console.log("===========================================================")
-     console.log('title: ',resultEvents[i].title);
-     console.log('start_time: ',resultEvents[i].start_time);
-     console.log('venue_name: ',resultEvents[i].venue_name);
-     console.log('venue_address: ',resultEvents[i].venue_address);
-   }
-});
+module.exports.displaySearch = keyword => {
+  client.searchEvents({
+    keywords: keyword,
+    location: 'San Francisco',
+    date: 'Next Week'
+  }, function(err, data){
+    if(err){
+      return console.error(err);
+    }
+    let resultEvent = data.search.events.event[0];
+    
+    console.log("===========================================================");
+    console.log('Event: ');
+    console.log('Title: ',resultEvent.title);
+    console.log('Start time: ',resultEvent.start_time);
+    console.log('Venue name: ',resultEvent.venue_name);
+    console.log('Venue address: ',resultEvent.venue_address);
+    console.log("===========================================================");
+
+    // only inserts without asking user y/n:
+    // connection.query('INSERT INTO events (name) VALUES ($1)', [resultEvent.title], (error, results) => {
+    //   if (error) {
+    //     throw error
+    //   }
+    //   console.log(`Event added to db`);
+    // });
+
+    //ask user y/n:
+    let questions4 = [{
+      type: 'confirm',
+      name: 'save_to_db',
+      message: 'Save this event? ',
+      default: false
+    }];
+    inquirer.prompt(questions4).then(answers4 => {
+      //if ( answers4 === { save_to_db: [ 'yes' ] } ){
+      if ( answers4.save_to_db === true ){
+        connection.query('INSERT INTO events (name) VALUES ($1)', [resultEvent.title], (error, results) => {
+          if (error) {
+            throw error
+          }
+          console.log(`\n=================`);
+          console.log(`Event added to db`);
+        })
+      } 
+    });
+    // end
+  });
+}
 
  //export a custom function that searches via Eventful API, displays the results AND stores some of the data into MySQL
-module.exports = function(optionsObj){
-  // YOUR WORK HERE
-  console.log("You need to create this functionality yourself")
-}
