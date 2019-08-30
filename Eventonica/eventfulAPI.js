@@ -45,13 +45,19 @@ module.exports.displaySearch = keyword => {
           if (error) {
             throw error
           }
-          console.log(`\n=================`);
+          console.log("===========================================================");
           console.log(`Event added to db`);
         })
-      } 
+      } else {
+        const fileCalledApp = require('./app.js');
+        console.log("===========================================================");
+        fileCalledApp.searchEventful();
+
+      }
     });
     // end
   });
 }
+
 
  //export a custom function that searches via Eventful API, displays the results AND stores some of the data into MySQL
