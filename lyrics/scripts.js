@@ -1,16 +1,27 @@
 const fetchLyrics = event => {
   //let pokemon = event.target.pokemon.value.toLowerCase();
-
+  let artist = document.getElementById("artist_name").value;
+  console.log(artist)
+  let title = document.getElementById("song_name").value;
+  console.log(title)
   let request = new XMLHttpRequest();
-  let url = `https://api.lyrics.ovh/v1/${artist}/${title}/`;
-
-  request.open('GET', url);
+  let url = `https://api.lyrics.ovh/v1/${artist}/${title}`;
+  request.open('GET', url, true); // setting the true param makes call asynchronous 
 
   request.onreadystatechange = function () {
-    if (this.readyState === 4) {
-      console.log('Status:', this.status);
-      console.log('Headers:', this.getAllResponseHeaders());
-      console.log('Body:', this.responseText);
+    console.log(request.reponse);
+    if (request.readyState === 4) {
+      console.log('Status:', request.status);
+      let response = JSON.parse(this.response);
+      console.log(response.lyrics);
+
+      $(document).ready(function() {
+        let html = "";
+        //html+= `<p>${response.lyrics}</p>`;
+        html+= `<p>${response.lyrics.replace(/\n/g, '<br />')}</p>`;
+        // insert final html into #event...
+        $("#lyrics").html(html);
+      });
     }
   };
 
@@ -18,8 +29,11 @@ const fetchLyrics = event => {
 };
 
 document.addEventListener('DOMContentLoaded', function() {
-  let form = document.getElementById('song_name');
-  form.addEventListener('submit', function(){
-      fetchLyrics(event);
+  let form = document.getElementById('songForm');
+  form.addEventListener('submit', function(event){
+    event.preventDefault(); // prevent form submission from reloading the page.
+    fetchLyrics();
   });
 });
+
+
