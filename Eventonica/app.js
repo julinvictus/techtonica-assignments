@@ -23,17 +23,17 @@ inquirer.prompt({
   }).then((res) => {
     const continueCallback = () => app.startQuestion(closeConnectionCallback);
 
-      if (res.action === 'Complete a sentence') app.completeSentence(continueCallback);
+    if (res.action === 'Complete a sentence') app.completeSentence(continueCallback);
     if (res.action === 'Create a new user') app.createNewUser(continueCallback);
     if (res.action === 'Find one event of a particular type in San Francisco next week') app.searchEventful(continueCallback);
     if (res.action === 'Mark an existing user to attend an event in database') 
-      continueCallback()
+      //continueCallback()
     app.matchUserWithEvent(continueCallback);
     if (res.action === 'See all events that a particular user is going to') 
     app.seeEventsOfOneUser(continueCallback);
     if (res.action === 'See all the users that are going to a particular event') app.seeUsersOfOneEvent(continueCallback);
     if (res.action === 'Exit') {
-      continueCallback();
+      closeConnectionCallback();
       return;
     }
   })
@@ -55,6 +55,7 @@ app.completeSentence = (continueCallback) => {
     console.log(`\nAnswer:`);
     console.log(`My favorite color is ${answers.color}, so my dream is to buy a ${answers.color} ${answers.item}`);
   });
+  
   //End of your work
   //continueCallback();
 }
@@ -152,25 +153,41 @@ app.seeEventsOfOneUser = (continueCallback) => {
         throw error
       }
       // fix it to communicate with my db, not api
-      console.log(results.rows); //WORKING
-      // let resultEvents = data.search.events.event;
-      // console.log('Received ' + data.search.total_items + ' events');
-      // console.log('Event listings: ');
-      // for ( let i =0 ; i < resultEvents.length; i++){
-      //   console.log("===========================================================");
-      //   console.log('Event: ');
-      //   console.log('Title: ',resultEvents[i].title);
-      //   console.log("===========================================================");
-      // }
+      console.log("\n===========================================================");
+      console.log('\nUser is going to: ');
+      //console.log(results.rows); 
+      return results.rows.map(object => {
+        console.log(`-${object.name}`);
+      });
     })
   });//   //continueCallback();
  }
 
- app.seeUsersOfOneEvent = (continueCallback) => {
+app.seeUsersOfOneEvent = (continueCallback) => {
 //   //YOUR WORK HERE
-  
-//   //End of your work
-//   //continueCallback();
- }
+  let questions6 = [{
+    type: 'input',
+    name: 'event_id',
+    message: 'Type an event id: ',
+  }];
+  inquirer.prompt(questions6).then(answers6 => {
+    const { event_id } = answers6;
+    //
+    connection.query('SELECT users.name FROM users INNER JOIN user_event ON users.id = user_event.userid INNER JOIN events ON events.id = user_event.eventid WHERE events.id=$1', [event_id],(error, results) => {
+      if (error) {
+        throw error
+      }
+      // fix it to communicate with my db, not api
+      console.log("\n===========================================================");
+      console.log('\nUsers going to this event: ');
+      //console.log(results.rows); 
+      return results.rows.map(object => {
+        console.log(`-${object.name}`);
+      });
+    })
+    
+  });//   //continueCallback();
+
+}
 
  module.exports = app;
