@@ -1,14 +1,16 @@
 # 🤗 Eventonica
 
 MERN project using
-MongoDB
-Express
-React
-Node.js
-Eventbrite API
-Mongoose
-Bootstrap
-Axios
+- MongoDB
+- Express
+- React
+- Node.js
+- Eventbrite API
+- Mongoose
+- Bootstrap
+- Axios
+- Jest
+- Enzyme
 
 ![index](screenshots/Index.png)
 ![Search](screenshots/Search_events.png)
