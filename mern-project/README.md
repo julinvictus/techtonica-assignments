@@ -10,7 +10,7 @@ Mongoose
 Bootstrap
 Axios
 
-![index](screenshots/index.png)
+![index](screenshots/Index.png)
 ![Search](screenshots/Search_events.png)
 ![Saved](screenshots/Saved_events.png)
 ![User](screenshots/Create_new_user.png)
