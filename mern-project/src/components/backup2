@@ -1,0 +1,82 @@
+//listing from jsonplaceholder
+
+import React, { Component } from 'react';
+//import axios from 'axios';
+require('dotenv').config()
+
+export default class SearchEvents extends Component {
+
+    constructor(props) {
+      super(props);
+      this.state = {
+        error: null,
+        isLoaded: false,
+        items: []
+      };
+    }
+  
+    componentDidMount() {
+        //https://jsonplaceholder.typicode.com/users
+        //http://api.eventful.com/json/events/search?location=San+Francisco&date=Next+Week
+        //https://www.eventbriteapi.com/v3/events/search/?location.address=San+Francisco&start_date.keyword=today&q=music&token=OWAG6MCGXLZJ5PZDGWM5
+      fetch("https://jsonplaceholder.typicode.com/albums")
+        .then(res => res.json())
+        .then(
+          (result) => {
+            this.setState({
+              isLoaded: true,
+              items: result
+            });
+            //console.log(`**** ${this.items.result}`)
+            //console.log(`**** ${this.state.items.events[0].name}`)
+          },
+          // Note: it's important to handle errors here
+          // instead of a catch() block so that we don't swallow
+          // exceptions from actual bugs in components.
+          (error) => {
+            this.setState({
+              isLoaded: true,
+              error
+            });
+          }
+        )
+    }
+  
+    render() {
+        const { isLoaded, items} = this.state;
+        if (!isLoaded){
+            return <div>Loading ...</div>;
+        } else {
+            return (
+                <div>
+                <h3>Search for events:</h3>
+                <form onSubmit={this.onSubmit}>
+                <div className="form-group"> 
+                    
+                    <input  type="text"
+                        required
+                        className="form-control"
+                        value={this.state.username}
+                        onChange={this.onChangeUsername}
+                        />
+                </div>
+                <div className="form-group">
+                    <input type="submit" value="Search now" className="btn btn-primary" />
+                </div>
+                </form>
+                <ul>
+                        {items.map(result => (
+                            <li key={result.id}>
+                                {result.title}
+                            </li>
+                        ))}
+                    </ul>
+                    
+                </div>
+            )
+        }
+        
+      }
+    }
+  
+  

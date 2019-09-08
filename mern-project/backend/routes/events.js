@@ -11,8 +11,9 @@ router.route('/').get((req, res) => {
 // POST add event
 router.route('/add').post((req, res) => {
   const eventname = req.body.eventname;
+  const atendees = req.body.atendees;
 
-  const newEvent = new Event({eventname});
+  const newEvent = new Event({eventname, atendees});
 
   newEvent.save()
   .then(() => res.json('Event added!'))

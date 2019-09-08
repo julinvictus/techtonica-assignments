@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 export default class CreateUser extends Component {
     constructor(props) {
@@ -19,12 +20,15 @@ export default class CreateUser extends Component {
         e.preventDefault();
         const newUser = {
             username: this.state.username,
-    };
-    console.log(newUser);
-    
-    this.setState({
-        username: ''
-    })
+        };
+        console.log(newUser);
+
+        axios.post('http://localhost:5000/users/add', newUser)
+        .then(res => console.log(res.data));
+        
+        this.setState({
+            username: ''
+        })
     }
         
     render() {
@@ -42,7 +46,7 @@ export default class CreateUser extends Component {
                     />
               </div>
               <div className="form-group">
-                <input type="submit" value="Create User" className="btn btn-primary" />
+                <input type="submit" value="Create User" className="btn btn-secondary" />
               </div>
             </form>
             </div>

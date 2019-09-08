@@ -4,6 +4,7 @@ const Schema = mongoose.Schema;
 
 const eventSchema = new Schema({
   eventname: { type: String, required: true },
+  atendees: { type: Array },
 
 }, {
   timestamps: true,
