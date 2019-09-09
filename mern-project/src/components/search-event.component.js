@@ -21,6 +21,7 @@ export default class SearchEvents extends Component {
     saveEvent = (e, eventName) => {
         e.preventDefault();
         console.log(eventName);
+        alert('YAY! 🎉 Event saved!');
         const newEvent = {
             eventname: eventName,
             atendees: ["Juliana"]
