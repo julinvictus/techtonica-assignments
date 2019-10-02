@@ -1,10 +1,23 @@
+# Backend take home exercise
+
+API using 
+- Node.js
+- Express
+- SQLite
+
 Run server: node index.js
 
-Endpoints: 
+## Endpoints: 
 
 http://localhost:3000/
+![index](screenshots/Postman_index.png)
 
-http://localhost:3000/contractor/search
+### Contractor's report
 
-http://localhost:3000/contractor/
-- problem here, not able to query
+http://localhost:3000/contractor/:companyName
+![company name](screenshots/Postman_companyName.png)
+
+### City report
+
+http://localhost:3000/contractor/:block
+![block](screenshots/Postman_block.png)
