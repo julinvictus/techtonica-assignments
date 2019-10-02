@@ -1,0 +1,5 @@
+node_modules/
+database.sqlite3
+Electrical_Permits_Contacts.csv
+Electrical_Permits.csv
+Fire_Violations.csv
