@@ -21,3 +21,7 @@ http://localhost:3000/contractor/:companyName
 
 http://localhost:3000/contractor/:block
 ![block](screenshots/Postman_block.png)
+
+### Schema
+
+![schema](screenshots/schema.jpg)

@@ -61,23 +61,26 @@ app.get('/contractor/:block', (request, response) => {
     }) 
 })
 
-// app.get('/contractor', (request, response) => {
-//     let sql = `SELECT DISTINCT fire_violations.Address AS address FROM fire_violations
-//     INNER JOIN permits ON fire_violations.Location= permits.Location 
-//     INNER JOIN contacts ON permits.\`Permit Number\` = contacts.\`Permit Number\` 
-//     WHERE contacts.\`Company Name\`="Millennium Electric Inc";`
-//     let params = [];
-//     db.all(sql, params, (err, row) => {
-//         if (err) {
-//             console.error(err.message);
-//             response.status(400).json({"error":err.message});
-//         }
-//         response.json({ 
-//             "address": row
-//         })
-//         console.log(row);
-//     }) 
-// })
+// using request.query
+app.get('/contractorx', (request, response) => {
+    let companyName = request.query.companyName;
+    console.log(companyName);
+    let sql = `SELECT DISTINCT fire_violations.Address AS address FROM fire_violations
+    INNER JOIN permits ON fire_violations.Location= permits.Location 
+    INNER JOIN contacts ON permits.\`Permit Number\` = contacts.\`Permit Number\` 
+    WHERE contacts.\`Company Name\`= ? ;`
+    //let params = [];
+    db.all(sql, [companyName], (err, row) => {
+        if (err) {
+            console.error(err.message);
+            response.status(400).json({"error":err.message});
+        }
+        response.json({ 
+            "address": row
+        })
+        console.log(row);
+    }) 
+})
 
 app.listen(port, () => {
 console.log(`App running on port ${port}.`)
