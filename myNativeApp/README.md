@@ -2,4 +2,4 @@
 
 App create using React Native
 
-![indpedometerex](pedometer.png)
+![pedometer](pedometer.PNG)
