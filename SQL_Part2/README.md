@@ -1,20 +1,21 @@
-### SQL part 2
+## SQL part 2
 
-Questions answered at [link](Data_Modeling_Part2.txt)
-![restaurant](screenshots/RestaurantDatabaseERDiagram.png)
+Questions answered at [Data_Modeling_Part2.txt](Data_Modeling_Part2.txt)
 
-## Twitter exercise
+![restaurant](screenshots/RestaurantDatabaseERDiagram.jpeg)
+
+### Twitter exercise
 
 ![structure](screenshots/structure.png)
 ![data](screenshots/data.png)
 ![commands](screenshots/commands.png)
-![screenshot](screenshots/TwitterDatabaseDiagram.png)
+![screenshot](screenshots/TwitterDatabaseDiagram.jpg)
 
-## Codecademy SQL
+### Codecademy SQL
 
 ![codecademy](screenshots/CodecademyMultipleTables.png)
 
-## Treehouse SQL
+### Treehouse SQL
 
 ![treehouse](screenshots/TreehouseQueryingRelationalDatabases.png)
 ![treehouse](screenshots/TreehouseSQLJoiningTableData.png)

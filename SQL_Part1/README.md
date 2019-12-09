@@ -1,4 +1,4 @@
-### SQL part 1
+## SQL part 1
 
 - Make a data model for this app, and answer the following questions:
 
@@ -34,6 +34,6 @@ which_meal => string
 times_done => int
 recipe_by => string
 
-## Codecademy SQL
+### Codecademy SQL
 
-![SQL](Codecademy_SQL.png)
+![SQL](screenshots/Codecademy_SQL.png)
