@@ -34,6 +34,6 @@ which_meal => string
 times_done => int
 recipe_by => string
 
-- Codecademy SQL
+## Codecademy SQL
 
 ![SQL](Codecademy_SQL.png)
