@@ -9,7 +9,7 @@ Questions answered at [Data_Modeling_Part2.txt](Data_Modeling_Part2.txt)
 ![structure](screenshots/structure.png)
 ![data](screenshots/data.png)
 ![commands](screenshots/commands.png)
-![screenshot](screenshots/TwitterDatabaseDiagram.jpg)
+![screenshot](screenshots/TwitterDatabaseDiagram.JPG)
 
 ### Codecademy SQL
 
