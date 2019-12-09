@@ -1,5 +1,4 @@
 const fetchLyrics = event => {
-  //let pokemon = event.target.pokemon.value.toLowerCase();
   let artist = document.getElementById("artist_name").value;
   console.log(artist)
   let title = document.getElementById("song_name").value;
@@ -17,9 +16,8 @@ const fetchLyrics = event => {
 
       $(document).ready(function() {
         let html = "";
-        //html+= `<p>${response.lyrics}</p>`;
         html+= `<p>${response.lyrics.replace(/\n/g, '<br />')}</p>`;
-        // insert final html into #event...
+        // insert final html into #lyrics...
         $("#lyrics").html(html);
       });
     }
